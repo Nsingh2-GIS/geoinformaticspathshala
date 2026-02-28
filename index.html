@@ -237,7 +237,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <!-- MAP SCRIPT -->
-    <script>
+    <!-- MAP SCRIPT -->
+  <script>
     var map = L.map('map').setView([22.5937, 78.9629], 5);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -247,7 +248,26 @@
     L.marker([28.6139, 77.2090]).addTo(map)
         .bindPopup("<b>Geo-informatics Pathshala</b><br>India GIS Learning Hub 🌍")
         .openPopup();
-    </script>
+  </script>
+
+  <!-- ANTI RIGHT-CLICK & VIEW SOURCE -->
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e){
+        e.preventDefault();
+        alert("Right-click is disabled!");
+    });
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+U
+    document.addEventListener('keydown', function(e) {
+        if(e.key === "F12" || 
+           (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+           (e.ctrlKey && e.key === 'U')) {
+            e.preventDefault();
+            alert("This action is disabled.");
+        }
+    });
+  </script>
 
 </body>
 </html>
