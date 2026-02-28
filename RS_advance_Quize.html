@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Remote Sensing | Unit Wise Quiz</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background:#eef2f7;
+    font-family:'Segoe UI',sans-serif;
+}
+.quiz-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+<div class="container py-5">
+<h2 class="text-center text-danger fw-bold mb-4">
+🚀 ADVANCED REMOTE SENSING – UNIT WISE QUIZ
+</h2>
+
+<div class="accordion" id="quizAccordion"></div>
+</div>
+
+<script>
+
+const topics = {
+
+unit1:{
+title:"Unit 1: Physical Basis of Remote Sensing",
+questions:[
+{q:"Visible light wavelength range?",o:["0.4–0.7 µm","1–10 µm","10–100 µm",">100 µm"],a:0},
+{q:"Planck’s law explains?",o:["Blackbody Radiation","Scattering","Reflection","Refraction"],a:0},
+{q:"Wien’s law relates temperature with?",o:["Peak Wavelength","Pressure","Humidity","Density"],a:0},
+{q:"Stefan–Boltzmann law relates energy with?",o:["Temperature^4","Distance","Speed","Mass"],a:0},
+{q:"Rayleigh scattering affects?",o:["Short Wavelengths","Long Waves","Thermal Only","Radar"],a:0},
+{q:"Mie scattering occurs due to?",o:["Dust & Smoke","Pure Vacuum","Water Only","Heat"],a:0},
+{q:"Non-selective scattering affects?",o:["All Wavelengths","Only Blue","Only Red","Microwave"],a:0},
+{q:"Absorption bands caused by?",o:["Gases in Atmosphere","Soil","Rocks","Buildings"],a:0},
+{q:"EM spectrum includes?",o:["Microwave","Sound","Wind","Rain"],a:0},
+{q:"Infrared region mainly detects?",o:["Heat","Color","Sound","Shape"],a:0}
+]
+},
+
+unit2:{
+title:"Unit 2: Advanced Sensors & Satellites",
+questions:[
+{q:"Multispectral sensor captures?",o:["Few Broad Bands","Hundreds Narrow Bands","Only One Band","No Band"],a:0},
+{q:"Hyperspectral sensing captures?",o:["Hundreds Narrow Bands","One Band","Two Bands","Audio"],a:0},
+{q:"SAR stands for?",o:["Synthetic Aperture Radar","Satellite Array Radio","Spatial Area Radar","None"],a:0},
+{q:"SAR works in?",o:["Microwave Region","Visible","Thermal Only","Sound"],a:0},
+{q:"Radiometric calibration corrects?",o:["Sensor Errors","Geometry","Speed","Location"],a:0},
+{q:"Geometric distortion caused by?",o:["Sensor Angle","Music","Cooking","Printing"],a:0},
+{q:"Across-track scanning uses?",o:["Whiskbroom Scanner","Pushbroom","Camera","GPS"],a:0},
+{q:"Pushbroom scanner captures?",o:["Line by Line","Point by Point","Area at once","None"],a:0},
+{q:"Side-looking radar reduces?",o:["Shadow Effects","Color","Heat","Sound"],a:0},
+{q:"Satellite orbit affects?",o:["Temporal Resolution","Brightness","Sound","Taste"],a:0}
+]
+},
+
+unit3:{
+title:"Unit 3: Digital Image Processing",
+questions:[
+{q:"Radiometric correction removes?",o:["Sensor Noise","Cloud","Shadow","Road"],a:0},
+{q:"Geometric correction fixes?",o:["Spatial Distortion","Color","Brightness","Heat"],a:0},
+{q:"PCA stands for?",o:["Principal Component Analysis","Pixel Control Analysis","Primary Color Axis","None"],a:0},
+{q:"NDVI formula uses?",o:["NIR & Red","Blue & Green","Thermal & Red","None"],a:0},
+{q:"Object-based classification uses?",o:["Image Segments","Single Pixel Only","Audio","Text"],a:0},
+{q:"Confusion matrix used for?",o:["Accuracy Assessment","Enhancement","Printing","Drawing"],a:0},
+{q:"Kappa coefficient measures?",o:["Classification Accuracy","Speed","Height","Width"],a:0},
+{q:"Image transformation enhances?",o:["Feature Detection","Music","Cooking","Singing"],a:0},
+{q:"Supervised classification requires?",o:["Training Data","Random Guess","Painting","None"],a:0},
+{q:"Unsupervised classification groups by?",o:["Spectral Similarity","Manual Input","Sound","Taste"],a:0}
+]
+},
+
+unit4:{
+title:"Unit 4: Advanced Applications",
+questions:[
+{q:"Climate change monitoring uses?",o:["Time Series Data","Audio","Video","Text"],a:0},
+{q:"Glacier retreat detected by?",o:["Satellite Imagery","Book","Radio","TV"],a:0},
+{q:"Urban heat island studied using?",o:["Thermal Imagery","Sound","Music","Food"],a:0},
+{q:"Precision agriculture uses?",o:["NDVI Maps","Cooking","Driving","Gaming"],a:0},
+{q:"Disaster risk modelling uses?",o:["Spatial Analysis","Dance","Song","Movie"],a:0},
+{q:"Sea level rise monitored by?",o:["Remote Sensing","Painting","Drawing","Cooking"],a:0},
+{q:"Carbon emission mapping uses?",o:["Satellite Data","Music","Text","None"],a:0},
+{q:"Drought analysis uses?",o:["Vegetation Index","Sound","Speed","Shape"],a:0},
+{q:"Landslide monitoring uses?",o:["DEM","Audio","TV","Pen"],a:0},
+{q:"Flood prediction models require?",o:["Geospatial Data","Music","Cooking","Drawing"],a:0}
+]
+},
+
+unit5:{
+title:"Unit 5: Emerging Technologies",
+questions:[
+{q:"UAV stands for?",o:["Unmanned Aerial Vehicle","Universal Air Vehicle","Urban Air Van","None"],a:0},
+{q:"Drone remote sensing provides?",o:["High Resolution Data","Audio","Music","Text"],a:0},
+{q:"LiDAR uses?",o:["Laser Pulses","Sound Waves","Sunlight Only","Wind"],a:0},
+{q:"LiDAR generates?",o:["3D Point Cloud","Audio File","Video","Text"],a:0},
+{q:"Machine learning improves?",o:["Classification Accuracy","Cooking","Driving","Singing"],a:0},
+{q:"AI-based classification uses?",o:["Algorithms","Books","Radio","Pen"],a:0},
+{q:"Cloud platform example?",o:["Google Earth Engine","VLC","Notepad","Zoom"],a:0},
+{q:"Big data in RS handles?",o:["Large Satellite Data","Music Files","Video Games","Audio"],a:0},
+{q:"Deep learning used for?",o:["Object Detection","Cooking","Singing","Driving"],a:0},
+{q:"Future RS focuses on?",o:["Automation & AI","Manual Drawing","Paper Maps","Radio"],a:0}
+]
+}
+
+};
+
+const accordion=document.getElementById("quizAccordion");
+let index=0;
+
+for(let key in topics){
+
+let topic=topics[key];
+
+let html=`
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button ${index!=0?'collapsed':''}" type="button"
+data-bs-toggle="collapse" data-bs-target="#collapse${index}">
+${topic.title}
+</button>
+</h2>
+
+<div id="collapse${index}" class="accordion-collapse collapse ${index==0?'show':''}">
+<div class="accordion-body">
+<div class="quiz-box">
+`;
+
+topic.questions.forEach((q,i)=>{
+html+=`<div class="mb-3">
+<strong>${i+1}. ${q.q}</strong><br>`;
+q.o.forEach((opt,j)=>{
+html+=`<input type="radio" name="${key+i}" value="${j}"> ${opt}<br>`;
+});
+html+=`</div>`;
+});
+
+html+=`
+<button class="btn btn-danger" onclick="submitTopic('${key}',${index})">
+Submit ${topic.title}
+</button>
+<h5 class="mt-3" id="result${index}"></h5>
+</div>
+</div>
+</div>
+</div>
+`;
+
+accordion.innerHTML+=html;
+index++;
+}
+
+function submitTopic(topicKey,idx){
+let score=0;
+let total=topics[topicKey].questions.length;
+
+topics[topicKey].questions.forEach((q,i)=>{
+let selected=document.querySelector('input[name="'+topicKey+i+'"]:checked');
+if(selected && parseInt(selected.value)===q.a){
+score++;
+}
+});
+
+let percent=((score/total)*100).toFixed(2);
+
+document.getElementById("result"+idx).innerHTML=
+`🎯 Score: ${score} / ${total} | 📊 ${percent}%`;
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

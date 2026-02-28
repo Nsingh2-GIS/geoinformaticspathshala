@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced GPS Quiz</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body{background:#eef5fb;font-family:'Segoe UI',sans-serif;}
+.quiz-box{background:white;padding:25px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+</style>
+</head>
+<body>
+
+<div class="container py-5">
+<h2 class="text-center text-danger fw-bold mb-4">
+🔴 ADVANCED GPS – UNIT WISE QUIZ
+</h2>
+<div class="accordion" id="quizAccordion"></div>
+</div>
+
+<script>
+
+const topics = {
+
+unit1:{
+title:"Unit 1: Advanced GPS Principles",
+questions:[
+{q:"GPS positioning is based on?",o:["Trilateration","Triangulation only","Mapping","Scanning"],a:0},
+{q:"Minimum satellites for 3D fix?",o:["4","3","2","5"],a:0},
+{q:"Dilution of Precision (DOP) indicates?",o:["Geometry quality","Weather","Signal color","Battery level"],a:0},
+{q:"PDOP stands for?",o:["Position Dilution of Precision","Partial Data of Position","Primary Data of Precision","Point Data Operation"],a:0},
+{q:"Multipath error occurs due to?",o:["Signal reflection","Satellite failure","Weather only","Receiver damage"],a:0},
+{q:"GPS time is measured using?",o:["Atomic clocks","Digital clock","Solar clock","Manual timing"],a:0},
+{q:"Relativistic correction is needed because of?",o:["Satellite velocity & gravity","Weather","Noise","Color change"],a:0},
+{q:"Selective Availability was disabled in?",o:["2000","1990","2010","1985"],a:0},
+{q:"Carrier phase measurement improves?",o:["Accuracy","Color","Sound","Speed"],a:0},
+{q:"Ionospheric delay affects?",o:["Signal travel time","Receiver battery","Map scale","Satellite shape"],a:0}
+]
+},
+
+unit2:{
+title:"Unit 2: GPS Errors & Corrections",
+questions:[
+{q:"Atmospheric error includes?",o:["Ionospheric & Tropospheric","Printer","Camera","Music"],a:0},
+{q:"Differential GPS (DGPS) improves?",o:["Accuracy","Color","Sound","Height only"],a:0},
+{q:"RTK stands for?",o:["Real Time Kinematic","Rapid Tracking Kit","Remote Time Key","Radio Tracking Key"],a:0},
+{q:"RTK provides accuracy up to?",o:["Centimeter level","Meter level","Kilometer","Millimeter only"],a:0},
+{q:"Base station in DGPS provides?",o:["Correction data","Music","Weather","Audio"],a:0},
+{q:"Satellite clock error corrected by?",o:["Control segment","User","Printer","Camera"],a:0},
+{q:"Ephemeris error relates to?",o:["Satellite orbit","Receiver battery","Weather","Sound"],a:0},
+{q:"Cycle slip affects?",o:["Carrier phase data","Color","Audio","Projection"],a:0},
+{q:"Geometric dilution depends on?",o:["Satellite position","Color","Weather","Height"],a:0},
+{q:"WAAS is example of?",o:["Satellite-based augmentation","Printer","Receiver","IMU"],a:0}
+]
+},
+
+unit3:{
+title:"Unit 3: Advanced GPS Applications",
+questions:[
+{q:"Geodesy uses GPS for?",o:["High precision measurement","Cooking","Music","Painting"],a:0},
+{q:"Autonomous vehicles rely on?",o:["RTK GPS","Printer","Scanner","Keyboard"],a:0},
+{q:"Disaster monitoring uses?",o:["Real-time positioning","Cooking","Singing","Typing"],a:0},
+{q:"Survey-grade GPS accuracy?",o:["Centimeter","Meter","Kilometer","Inch only"],a:0},
+{q:"Precision agriculture uses?",o:["GPS guidance","Music","Video","Radio"],a:0},
+{q:"GIS data collection uses?",o:["GPS receiver","Speaker","Printer","Camera only"],a:0},
+{q:"Marine navigation requires?",o:["Satellite signals","Paper maps only","Radio only","Manual compass only"],a:0},
+{q:"Timing synchronization in telecom uses?",o:["GPS time","Music","Sound","Heat"],a:0},
+{q:"Military applications use?",o:["Encrypted GPS","Open music","Audio","Color"],a:0},
+{q:"GNSS includes systems like?",o:["GPS, GLONASS, Galileo","Printer, Camera","Radio, TV","Sound, Light"],a:0}
+]
+}
+
+};
+
+const accordion=document.getElementById("quizAccordion");
+let index=0;
+
+for(let key in topics){
+let topic=topics[key];
+let html=`<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button ${index!=0?'collapsed':''}" type="button"
+data-bs-toggle="collapse" data-bs-target="#collapse${index}">
+${topic.title}</button></h2>
+<div id="collapse${index}" class="accordion-collapse collapse ${index==0?'show':''}">
+<div class="accordion-body"><div class="quiz-box">`;
+
+topic.questions.forEach((q,i)=>{
+html+=`<div class="mb-3"><strong>${i+1}. ${q.q}</strong><br>`;
+q.o.forEach((opt,j)=>{
+html+=`<input type="radio" name="${key+i}" value="${j}"> ${opt}<br>`;
+});
+html+=`</div>`;
+});
+
+html+=`<button class="btn btn-danger" onclick="submitTopic('${key}',${index})">Submit</button>
+<h5 class="mt-3" id="result${index}"></h5></div></div></div></div>`;
+
+accordion.innerHTML+=html;
+index++;
+}
+
+function submitTopic(topicKey,idx){
+let score=0;
+let total=topics[topicKey].questions.length;
+topics[topicKey].questions.forEach((q,i)=>{
+let selected=document.querySelector('input[name="'+topicKey+i+'"]:checked');
+if(selected && parseInt(selected.value)===q.a){score++;}});
+let percent=((score/total)*100).toFixed(2);
+document.getElementById("result"+idx).innerHTML=
+`🎯 Score: ${score}/${total} | ${percent}%`;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Photogrammetry Advanced Quiz</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background:#eef3f9;
+    font-family:'Segoe UI',sans-serif;
+}
+.quiz-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+<div class="container py-5">
+<h2 class="text-center text-danger fw-bold mb-4">
+🚀 PHOTOGRAMMETRY – ADVANCED QUIZ
+</h2>
+
+<div class="accordion" id="quizAccordion"></div>
+</div>
+
+<script>
+
+const topics = {
+
+unit1:{
+title:"Advanced Unit 1: Mathematical Foundations",
+questions:[
+{q:"Collinearity condition relates?",o:["Object point, image point & camera center","Only image points","Only object points","None"],a:0},
+{q:"Exterior orientation defines?",o:["Camera position & attitude","Lens color","Image brightness","Flight speed"],a:0},
+{q:"Interior orientation defines?",o:["Camera geometry parameters","Flight path","Ground control","Lighting"],a:0},
+{q:"Bundle adjustment improves?",o:["Accuracy","Color","Noise","Speed only"],a:0},
+{q:"Epipolar geometry used in?",o:["Stereo matching","Printing","Drawing","Scanning"],a:0},
+{q:"Parallax helps determine?",o:["Height","Color","Tone","Texture"],a:0},
+{q:"Relative orientation is between?",o:["Two overlapping images","Camera & ground","GPS & GIS","None"],a:0},
+{q:"Absolute orientation uses?",o:["Ground control points","Sound","Color","Shadow"],a:0},
+{q:"Least square method used for?",o:["Error minimization","Color correction","Printing","Noise removal"],a:0},
+{q:"Photogrammetric equations are?",o:["Geometric","Chemical","Biological","Electrical"],a:0}
+]
+},
+
+unit2:{
+title:"Advanced Unit 2: Digital Photogrammetry",
+questions:[
+{q:"DEM stands for?",o:["Digital Elevation Model","Data Elevation Map","Digital Error Model","None"],a:0},
+{q:"Orthorectification removes?",o:["Relief distortion","Color","Noise","Shadow"],a:0},
+{q:"Feature matching done by?",o:["Algorithms","Manual sketch","Painting","Typing"],a:0},
+{q:"Image triangulation uses?",o:["Tie points","Music","Cooking","Driving"],a:0},
+{q:"Dense point cloud generated from?",o:["Stereo images","Audio","Text","Map"],a:0},
+{q:"Photogrammetric software example?",o:["Pix4D","VLC","Excel","Notepad"],a:0},
+{q:"Block adjustment corrects?",o:["Systematic errors","Food","Music","Video"],a:0},
+{q:"Ground sampling distance affects?",o:["Resolution","Taste","Smell","Sound"],a:0},
+{q:"3D mesh created from?",o:["Point cloud","Audio","Text","Spreadsheet"],a:0},
+{q:"Orthomosaic is?",o:["Geometrically corrected image","Raw image","Sketch","Painting"],a:0}
+]
+},
+
+unit3:{
+title:"Advanced Unit 3: UAV & LiDAR Integration",
+questions:[
+{q:"UAV stands for?",o:["Unmanned Aerial Vehicle","Ultra Air Vehicle","Urban Air View","None"],a:0},
+{q:"LiDAR measures using?",o:["Laser pulses","Sound","Camera only","Ink"],a:0},
+{q:"LiDAR gives high accuracy in?",o:["Elevation mapping","Color detection","Taste","Smell"],a:0},
+{q:"UAV mapping requires?",o:["Flight planning","Cooking","Driving","Gaming"],a:0},
+{q:"RTK improves?",o:["Position accuracy","Color","Tone","Shadow"],a:0},
+{q:"Point cloud density affects?",o:["Detail level","Taste","Music","None"],a:0},
+{q:"LiDAR penetration useful in?",o:["Forest mapping","Ocean depth","Sound waves","Painting"],a:0},
+{q:"UAV photogrammetry best for?",o:["Small areas","Global mapping","Deep ocean","Space"],a:0},
+{q:"LiDAR output includes?",o:["DEM/DSM","Audio","Video","Text"],a:0},
+{q:"UAV overlap recommended?",o:["70-80%","10%","5%","0%"],a:0}
+]
+},
+
+unit4:{
+title:"Advanced Unit 4: Accuracy & Error Analysis",
+questions:[
+{q:"RMSE measures?",o:["Accuracy","Color","Sound","Taste"],a:0},
+{q:"Systematic error example?",o:["Lens distortion","Random noise","Shadow","None"],a:0},
+{q:"Random error caused by?",o:["Measurement uncertainty","Camera color","Flight height","None"],a:0},
+{q:"Camera calibration corrects?",o:["Lens distortion","Music","Drawing","Cooking"],a:0},
+{q:"Check points used for?",o:["Accuracy assessment","Printing","Scanning","Painting"],a:0},
+{q:"Error propagation affects?",o:["Final accuracy","Color","Taste","Smell"],a:0},
+{q:"Ground control improves?",o:["Georeferencing","Music","Video","Audio"],a:0},
+{q:"Resolution affects?",o:["Detail clarity","Smell","Taste","Sound"],a:0},
+{q:"Block geometry influences?",o:["Stability","Color","Tone","Noise"],a:0},
+{q:"Quality control ensures?",o:["Reliable output","Fast cooking","Music","Dance"],a:0}
+]
+},
+
+unit5:{
+title:"Advanced Unit 5: Applications & Future Trends",
+questions:[
+{q:"Photogrammetry used in?",o:["Smart cities","Cooking","Music","Gaming"],a:0},
+{q:"3D city modeling supports?",o:["Urban planning","Singing","Driving","Painting"],a:0},
+{q:"Disaster assessment uses?",o:["Rapid mapping","Cooking","Music","Dance"],a:0},
+{q:"AI integration improves?",o:["Automation","Taste","Smell","Color"],a:0},
+{q:"Digital twin created from?",o:["3D models","Audio","Text","Paper"],a:0},
+{q:"Heritage documentation uses?",o:["Close-range photogrammetry","Cooking","Driving","Music"],a:0},
+{q:"Mining volume estimation uses?",o:["DEM","Audio","Text","Color"],a:0},
+{q:"Future trend includes?",o:["Automation & AI","Film cameras","Manual drafting","None"],a:0},
+{q:"Climate studies use?",o:["Elevation models","Cooking","Music","None"],a:0},
+{q:"Integration with GIS allows?",o:["Spatial analysis","Sound","Taste","Smell"],a:0}
+]
+}
+
+};
+
+const accordion=document.getElementById("quizAccordion");
+let i=0;
+
+for(const key in topics){
+let topic=topics[key];
+
+let html=`
+<div class="accordion-item mb-3">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse${i}">
+${topic.title}
+</button>
+</h2>
+<div id="collapse${i}" class="accordion-collapse collapse">
+<div class="accordion-body quiz-box">
+<form id="form${i}">
+`;
+
+topic.questions.forEach((q,qi)=>{
+html+=`<p class="fw-bold mt-3">${qi+1}. ${q.q}</p>`;
+q.o.forEach((opt,oi)=>{
+html+=`
+<div class="form-check">
+<input class="form-check-input" type="radio" name="q${qi}" value="${oi}">
+<label class="form-check-label">${opt}</label>
+</div>`;
+});
+});
+
+html+=`
+<button type="button" class="btn btn-danger mt-4" onclick="submitQuiz(${i},'${key}')">Submit</button>
+<p class="mt-3 fw-bold text-success" id="result${i}"></p>
+</form>
+</div>
+</div>
+</div>
+`;
+
+accordion.innerHTML+=html;
+i++;
+}
+
+function submitQuiz(index,key){
+let form=document.getElementById("form"+index);
+let data=new FormData(form);
+let score=0;
+topics[key].questions.forEach((q,qi)=>{
+if(data.get("q"+qi)==q.a.toString()) score++;
+});
+document.getElementById("result"+index).innerHTML=
+"Score: "+score+" / "+topics[key].questions.length;
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geo-Informatics Pathshala | GIS Current Affairs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg,#e3f2fd,#f8f9fa);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header-section {
+            background: linear-gradient(90deg,#0d6efd,#20c997);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .table-container {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .table-hover tbody tr {
+            transition: all 0.3s ease;
+        }
+
+            .table-hover tbody tr:hover {
+                background: #e9f5ff;
+                transform: scale(1.01);
+            }
+
+        .filter-box {
+            max-width: 250px;
+        }
+
+        .summary-text {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #212529;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">🌍 Geo-Informatics Pathshala</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="header-section">
+        <div class="container">
+            <h1>GIS Current Affairs Dashboard</h1>
+            <p> | India & Global GIS Updates | </p>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="table-container">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4>|| Latest Verified GIS News ||</h4>
+
+                <select id="dateFilter" class="form-select filter-box" onchange="filterTable()">
+                    <option value="all">All Dates</option>
+                    <option value="Dec 2025">December 2025</option>
+                    <option value="Jan 2026">January 2026</option>
+                    <option value="Feb 2026">February 2026</option>
+                </select>
+
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle" id="newsTable">
+
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Concise Summary</th>
+                            <th>Country</th>
+                            <th>Organization</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Dec 2025</td>
+                            <td>National Geospatial Policy Expansion</td>
+                            <td class="summary-text">India expanded geospatial data access policies to promote private sector innovation and open mapping initiatives.</td>
+                            <td>India</td>
+                            <td>DST</td>
+                            <td><a href="https://dst.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Dec 2025</td>
+                            <td>ISRO Disaster Monitoring Upgrade</td>
+                            <td class="summary-text">ISRO enhanced satellite-based disaster monitoring systems to improve flood and cyclone early warning systems.</td>
+                            <td>India</td>
+                            <td>ISRO</td>
+                            <td><a href="https://www.isro.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Dec 2025</td>
+                            <td>NASA EarthData Cloud Update</td>
+                            <td class="summary-text">NASA improved its EarthData GIS cloud platform for easier satellite data access for researchers worldwide.</td>
+                            <td>USA</td>
+                            <td>NASA</td>
+                            <td><a href="https://earthdata.nasa.gov/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Dec 2025</td>
+                            <td>Digital India GIS Infrastructure</td>
+                            <td class="summary-text">Digital India mission strengthened national GIS infrastructure for governance and smart services.</td>
+                            <td>India</td>
+                            <td>Digital India</td>
+                            <td><a href="https://digitalindia.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Jan 2026</td>
+                            <td>Smart City GIS Dashboard</td>
+                            <td class="summary-text">GIS dashboards implemented in major smart cities for urban planning and traffic monitoring.</td>
+                            <td>India</td>
+                            <td>MoHUA</td>
+                            <td><a href="https://smartcities.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Jan 2026</td>
+                            <td>Esri AI GIS Tools Update</td>
+                            <td class="summary-text">Esri introduced AI-powered spatial analytics tools within ArcGIS ecosystem.</td>
+                            <td>Global</td>
+                            <td>Esri</td>
+                            <td><a href="https://www.esri.com/en-us/about/newsroom" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Jan 2026</td>
+                            <td>Drone Mapping in Agriculture</td>
+                            <td class="summary-text">Indian agriculture ministry expanded drone mapping for crop monitoring and precision farming.</td>
+                            <td>India</td>
+                            <td>Agriculture Ministry</td>
+                            <td><a href="https://agricoop.nic.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Jan 2026</td>
+                            <td>FOSS4G Asia 2026</td>
+                            <td class="summary-text">Open-source GIS experts gathered to promote geospatial innovation across Asia.</td>
+                            <td>India</td>
+                            <td>FOSS4G</td>
+                            <td><a href="https://foss4g.asia/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Jan 2026</td>
+                            <td>ESA Copernicus Data Release</td>
+                            <td class="summary-text">European Space Agency released high-resolution Copernicus satellite datasets.</td>
+                            <td>Europe</td>
+                            <td>ESA</td>
+                            <td><a href="https://www.esa.int/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Feb 2026</td>
+                            <td>ISRO-NASA Earth Mapping Mission</td>
+                            <td class="summary-text">Joint satellite collaboration enhanced Earth surface mapping and climate research.</td>
+                            <td>India/USA</td>
+                            <td>ISRO & NASA</td>
+                            <td><a href="https://www.nasa.gov/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Feb 2026</td>
+                            <td>NPNT Drone Compliance Update</td>
+                            <td class="summary-text">DGCA strengthened No Permission No Takeoff drone compliance rules in India.</td>
+                            <td>India</td>
+                            <td>DGCA</td>
+                            <td><a href="https://www.dgca.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Feb 2026</td>
+                            <td>Bhuvan Portal Update</td>
+                            <td class="summary-text">ISRO’s Bhuvan portal added new GIS layers and improved visualization tools.</td>
+                            <td>India</td>
+                            <td>NRSC</td>
+                            <td><a href="https://bhuvan.nrsc.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Feb 2026</td>
+                            <td>Geospatial Startup Scheme</td>
+                            <td class="summary-text">Government launched incentives for startups working in geospatial technology.</td>
+                            <td>India</td>
+                            <td>MeitY</td>
+                            <td><a href="https://www.meity.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Feb 2026</td>
+                            <td>Urban GIS Planning in Tier-2 Cities</td>
+                            <td class="summary-text">State governments adopted GIS for sustainable urban infrastructure planning.</td>
+                            <td>India</td>
+                            <td>State Govt</td>
+                            <td><a href="https://pib.gov.in/" target="_blank">Visit</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Feb 2026</td>
+                            <td>Global Satellite Constellation Expansion</td>
+                            <td class="summary-text">Private space companies expanded satellite constellations for global mapping services.</td>
+                            <td>Global</td>
+                            <td>Private Firms</td>
+                            <td><a href="https://spacenews.com/" target="_blank">Visit</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        © 2026 GIS Pathshala | Modern GIS News Portal
+    </footer>
+
+    <script>
+        function filterTable() {
+            let filter = document.getElementById("dateFilter").value;
+            let table = document.getElementById("newsTable");
+            let tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    let textValue = td.textContent || td.innerText;
+                    if (filter === "all" || textValue === filter) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

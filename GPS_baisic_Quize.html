@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Basic GPS Quiz</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body{background:#f4f8fb;font-family:'Segoe UI',sans-serif;}
+.quiz-box{background:white;padding:25px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+</style>
+</head>
+<body>
+
+<div class="container py-5">
+<h2 class="text-center text-success fw-bold mb-4">
+🛰️ BASIC GPS – UNIT WISE QUIZ
+</h2>
+<div class="accordion" id="quizAccordion"></div>
+</div>
+
+<script>
+
+const topics = {
+
+unit1:{
+title:"Unit 1: Introduction to GPS",
+questions:[
+{q:"GPS stands for?",o:["Global Positioning System","Ground Positioning System","Geo Photo System","Global Photo Satellite"],a:0},
+{q:"GPS is operated by which country?",o:["USA","India","China","Russia"],a:0},
+{q:"GPS works using?",o:["Satellites","Sound waves","Radio towers","WiFi only"],a:0},
+{q:"GPS provides?",o:["Location & Time","Cooking data","Music","Temperature only"],a:0},
+{q:"Minimum satellites required for 3D position?",o:["4","2","1","8"],a:0},
+{q:"GPS is a type of?",o:["GNSS","Radar","Sonar","Camera"],a:0},
+{q:"GPS signals travel at speed of?",o:["Light","Sound","Wind","Water"],a:0},
+{q:"GPS provides coordinates in?",o:["Latitude & Longitude","Color & Shape","Height & Width","Audio"],a:0},
+{q:"First GPS satellite launched in?",o:["1978","1990","1960","2005"],a:0},
+{q:"GPS is an example of?",o:["Space-based navigation","Ground survey only","Manual mapping","Printing system"],a:0}
+]
+},
+
+unit2:{
+title:"Unit 2: GPS Components",
+questions:[
+{q:"GPS has how many segments?",o:["3","2","5","1"],a:0},
+{q:"Space segment includes?",o:["Satellites","Ground stations","Receivers","Antennas only"],a:0},
+{q:"Control segment monitors?",o:["Satellite health","Weather","Music","TV"],a:0},
+{q:"User segment includes?",o:["GPS receiver","Satellite","Printer","Radar"],a:0},
+{q:"GPS satellites orbit at approx height?",o:["20,200 km","500 km","100 km","1,000 km"],a:0},
+{q:"GPS receiver calculates position using?",o:["Trilateration","Triangulation only","Color mixing","Projection"],a:0},
+{q:"Atomic clocks are used in?",o:["Satellites","Printers","Phones","Cars"],a:0},
+{q:"GPS signal frequency band?",o:["L-band","X-band","C-band","S-band"],a:0},
+{q:"Ephemeris data provides?",o:["Satellite position","Weather","Map color","Audio"],a:0},
+{q:"Almanac data provides?",o:["Satellite status info","Music","Images","Temperature"],a:0}
+]
+},
+
+unit3:{
+title:"Unit 3: GPS Applications",
+questions:[
+{q:"GPS used in?",o:["Navigation","Cooking","Music","Painting"],a:0},
+{q:"Surveying uses?",o:["GPS","Printer","Scanner","Camera only"],a:0},
+{q:"Fleet tracking uses?",o:["GPS","Radio","TV","Books"],a:0},
+{q:"Disaster management uses?",o:["GPS","Cooking","Drawing","Typing"],a:0},
+{q:"Agriculture uses GPS for?",o:["Precision farming","Singing","Typing","Cooking"],a:0},
+{q:"Mobile maps use?",o:["GPS","Radio","Paper only","Music"],a:0},
+{q:"Aviation navigation uses?",o:["GPS","Printer","Color sensor","Microphone"],a:0},
+{q:"Marine navigation uses?",o:["GPS","Keyboard","Scanner","Speaker"],a:0},
+{q:"Geotagging uses?",o:["GPS coordinates","Audio","Video","Heat"],a:0},
+{q:"Timing synchronization uses?",o:["GPS time signal","Music","Color","Wind"],a:0}
+]
+}
+
+};
+
+const accordion=document.getElementById("quizAccordion");
+let index=0;
+
+for(let key in topics){
+let topic=topics[key];
+let html=`<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button ${index!=0?'collapsed':''}" type="button"
+data-bs-toggle="collapse" data-bs-target="#collapse${index}">
+${topic.title}</button></h2>
+<div id="collapse${index}" class="accordion-collapse collapse ${index==0?'show':''}">
+<div class="accordion-body"><div class="quiz-box">`;
+
+topic.questions.forEach((q,i)=>{
+html+=`<div class="mb-3"><strong>${i+1}. ${q.q}</strong><br>`;
+q.o.forEach((opt,j)=>{
+html+=`<input type="radio" name="${key+i}" value="${j}"> ${opt}<br>`;
+});
+html+=`</div>`;
+});
+
+html+=`<button class="btn btn-success" onclick="submitTopic('${key}',${index})">Submit</button>
+<h5 class="mt-3" id="result${index}"></h5></div></div></div></div>`;
+
+accordion.innerHTML+=html;
+index++;
+}
+
+function submitTopic(topicKey,idx){
+let score=0;
+let total=topics[topicKey].questions.length;
+topics[topicKey].questions.forEach((q,i)=>{
+let selected=document.querySelector('input[name="'+topicKey+i+'"]:checked');
+if(selected && parseInt(selected.value)===q.a){score++;}});
+let percent=((score/total)*100).toFixed(2);
+document.getElementById("result"+idx).innerHTML=
+`🎯 Score: ${score}/${total} | ${percent}%`;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

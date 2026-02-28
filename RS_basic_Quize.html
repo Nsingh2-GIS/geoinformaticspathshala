@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Remote Sensing | Unit Wise Quiz</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background:#f4f6f9;
+    font-family:'Segoe UI',sans-serif;
+}
+.quiz-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+<div class="container py-5">
+<h2 class="text-center text-success fw-bold mb-4">
+🌍 REMOTE SENSING – UNIT WISE QUIZ
+</h2>
+
+<div class="accordion" id="quizAccordion"></div>
+</div>
+
+<script>
+
+const topics = {
+
+unit1:{
+title:"Unit 1: Introduction to Remote Sensing",
+questions:[
+{q:"Remote Sensing means collecting information without?",o:["Physical Contact","Touching","Seeing","Measuring"],a:1},
+{q:"Main energy source in passive remote sensing?",o:["Radar","Laser","Sun","Battery"],a:2},
+{q:"EMR stands for?",o:["Electro Magnetic Radiation","Energy Map Radiation","Electric Map Range","None"],a:0},
+{q:"Which is component of Remote Sensing?",o:["Sensor","Keyboard","Speaker","Printer"],a:0},
+{q:"Atmosphere affects radiation by?",o:["Scattering","Cooking","Driving","Printing"],a:0},
+{q:"Active remote sensing uses?",o:["Own Energy Source","Sunlight Only","Wind","Sound"],a:0},
+{q:"Example of active sensor?",o:["RADAR","Camera","Eye","Film"],a:0},
+{q:"Target means?",o:["Object on Earth","Sun","Satellite","Computer"],a:0},
+{q:"One advantage of RS?",o:["Large Area Coverage","Slow Process","Limited Data","No Accuracy"],a:0},
+{q:"Limitation of RS?",o:["Cloud Cover Problem","Fast Data","Cheap Always","No Skill Needed"],a:0}
+]
+},
+
+unit2:{
+title:"Unit 2: Platforms & Sensors",
+questions:[
+{q:"Which is a remote sensing platform?",o:["Satellite","Book","Pen","Chair"],a:0},
+{q:"Airborne platform example?",o:["Aircraft","Car","Ship","Bus"],a:0},
+{q:"Ground platform includes?",o:["Tripod Sensor","Rocket","Submarine","TV"],a:0},
+{q:"Optical sensor captures?",o:["Visible Light","Sound","Taste","Smell"],a:0},
+{q:"Thermal sensor detects?",o:["Heat Energy","Sound","Color","Wind"],a:0},
+{q:"Microwave sensor works in?",o:["Cloudy Weather","Only Sunny","Night Only","None"],a:0},
+{q:"Spatial resolution means?",o:["Detail of Image","Time Gap","Color Range","Brightness Level"],a:0},
+{q:"Spectral resolution refers to?",o:["Number of Bands","Image Size","Time Interval","Pixel Depth"],a:0},
+{q:"Temporal resolution means?",o:["Revisit Time","Color Quality","Height","Width"],a:0},
+{q:"Radiometric resolution refers to?",o:["Brightness Levels","Pixel Size","Bands","Time"],a:0}
+]
+},
+
+unit3:{
+title:"Unit 3: Image Interpretation",
+questions:[
+{q:"Tone refers to?",o:["Brightness","Height","Width","Speed"],a:0},
+{q:"Texture describes?",o:["Surface Pattern","Color Only","Shape Only","Size Only"],a:0},
+{q:"Band combination improves?",o:["Visualization","Sound","Cooking","Drawing"],a:0},
+{q:"Shape helps identify?",o:["Objects","Music","Taste","Smell"],a:0},
+{q:"Supervised classification needs?",o:["Training Samples","Guess","Random","Music"],a:0},
+{q:"Unsupervised classification is?",o:["Automatic Grouping","Manual Drawing","Painting","Printing"],a:0},
+{q:"Image enhancement improves?",o:["Image Quality","Sound","Food","Dance"],a:0},
+{q:"Pattern helps identify?",o:["Land Use","Song","Sport","Movie"],a:0},
+{q:"Size element refers to?",o:["Object Dimension","Color","Sound","Taste"],a:0},
+{q:"Shadow helps detect?",o:["Height & Shape","Temperature","Color","Speed"],a:0}
+]
+},
+
+unit4:{
+title:"Unit 4: Applications",
+questions:[
+{q:"Remote sensing in agriculture is used for?",o:["Crop Monitoring","Cooking","Driving","Gaming"],a:0},
+{q:"Forest mapping helps detect?",o:["Deforestation","Music","Food","Movies"],a:0},
+{q:"Urban planning uses RS for?",o:["Land Use Mapping","Singing","Dancing","Painting"],a:0},
+{q:"Flood mapping is part of?",o:["Disaster Management","Sports","Banking","Gaming"],a:0},
+{q:"Water resource mapping identifies?",o:["Water Bodies","Buildings","Cars","Roads"],a:0},
+{q:"NDVI mainly used in?",o:["Agriculture","Music","Cooking","Driving"],a:0},
+{q:"Fire detection in forests is application of?",o:["Remote Sensing","Drawing","Singing","Banking"],a:0},
+{q:"Urban heat island study uses?",o:["Thermal Data","Audio","Video","Text"],a:0},
+{q:"Drought assessment supports?",o:["Agriculture Planning","Gaming","Music","Cinema"],a:0},
+{q:"Disaster damage assessment is done using?",o:["Satellite Images","Books","Radio","TV"],a:0}
+]
+},
+
+unit5:{
+title:"Unit 5: RS Integration",
+questions:[
+{q:"Remote Sensing combined with?",o:["GIS","Cooking","Sports","Music"],a:0},
+{q:"GIS mainly used for?",o:["Spatial Analysis","Singing","Drawing","Gaming"],a:0},
+{q:"GPS provides?",o:["Location","Color","Taste","Sound"],a:0},
+{q:"NDVI stands for?",o:["Normalized Difference Vegetation Index","New Digital Value Index","Natural Data Visual Index","None"],a:0},
+{q:"NDVI helps measure?",o:["Vegetation Health","Temperature","Sound","Speed"],a:0},
+{q:"LiDAR is used for?",o:["Elevation Mapping","Cooking","Music","Gaming"],a:0},
+{q:"LiDAR works using?",o:["Laser Pulses","Sunlight Only","Sound Waves","Wind"],a:0},
+{q:"RS + GIS helps in?",o:["Decision Making","Dancing","Driving","Drawing"],a:0},
+{q:"GPS works with?",o:["Satellites","Books","Pens","TV"],a:0},
+{q:"3D terrain model created using?",o:["LiDAR","Radio","Printer","Camera"],a:0}
+]
+}
+
+};
+
+
+const accordion=document.getElementById("quizAccordion");
+let index=0;
+
+for(let key in topics){
+
+let topic=topics[key];
+
+let html=`
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button ${index!=0?'collapsed':''}" type="button"
+data-bs-toggle="collapse" data-bs-target="#collapse${index}">
+${topic.title}
+</button>
+</h2>
+
+<div id="collapse${index}" class="accordion-collapse collapse ${index==0?'show':''}">
+<div class="accordion-body">
+<div class="quiz-box">
+`;
+
+topic.questions.forEach((q,i)=>{
+html+=`<div class="mb-3">
+<strong>${i+1}. ${q.q}</strong><br>`;
+q.o.forEach((opt,j)=>{
+html+=`<input type="radio" name="${key+i}" value="${j}"> ${opt}<br>`;
+});
+html+=`</div>`;
+});
+
+html+=`
+<button class="btn btn-success" onclick="submitTopic('${key}',${index})">
+Submit ${topic.title}
+</button>
+<h5 class="mt-3" id="result${index}"></h5>
+</div>
+</div>
+</div>
+</div>
+`;
+
+accordion.innerHTML+=html;
+index++;
+}
+
+function submitTopic(topicKey,idx){
+let score=0;
+let total=topics[topicKey].questions.length;
+
+topics[topicKey].questions.forEach((q,i)=>{
+let selected=document.querySelector('input[name="'+topicKey+i+'"]:checked');
+if(selected && parseInt(selected.value)===q.a){
+score++;
+}
+});
+
+let percent=((score/total)*100).toFixed(2);
+
+document.getElementById("result"+idx).innerHTML=
+`🎯 Score: ${score} / ${total} | 📊 ${percent}%`;
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

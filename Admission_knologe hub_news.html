@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Geo-Informatics Pathshala | Premium Admissions Portal</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f4f7fa;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg,#0d6efd,#0dcaf0);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+        }
+
+        .table thead {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .badge-premium {
+            background: gold;
+            color: black;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background: #212529;
+            color: white;
+        }
+
+        .apply-btn {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body class="container py-4">
+
+    <!-- NAVBAR -->
+      <!-- ================= COMMON NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold" href="index.html">
+                🌍 Geo-Informatics Pathshala
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">🏠 Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Study-matrial-sub-page.html">
+                            📚 Study Material
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Jobs-Vacancy.html">
+                            💼 Jobs
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="GIS-Knowledge-Hub.html">
+                            📰 News
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            📞 Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="privacy-policy.html">
+                            🔒 Privacy
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= NAVBAR END ================= -->
+
+
+    <div class="header-section text-center mb-4">
+        <h2>🎓 GIS Admissions & Courses</h2>
+        <p>Government Universities | GIS | Remote Sensing | WebGIS</p>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search University...">
+        </div>
+
+        <div class="col-md-4">
+            <select id="courseFilter" class="form-select">
+                <option value="All">All</option>
+                <option value="PG Diploma">PG Diploma</option>
+                <option value="MSc">MSc</option>
+                <option value="MTech">MTech</option>
+                <option value="Certificate">Certificate</option>
+            </select>
+        </div>
+
+        
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle" id="admissionTable">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>University</th>
+                    <th>Course Type</th>
+                    <th>Entrance Exam</th>
+                    <th>Start Date</th>
+                    <th>Last Date</th>
+                    <th>Status</th>
+                    <th>Fee (Approx)</th>
+                    <th>Apply</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- INDIA UNIVERSITIES -->
+
+                <tr>
+                    <td>Jawaharlal Nehru University (JNU)</td>
+                    <td>MSc</td>
+                    <td>CUET-PG</td>
+                    <td>March 2026</td>
+                    <td>April 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>₹12,000 / Year</td>
+                    <td>
+                        <a href="https://www.jnu.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>University of Delhi</td>
+                    <td>MSc</td>
+                    <td>CUET-PG</td>
+                    <td>April 2026</td>
+                    <td>May 2026</td>
+                    <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                    <td>₹15,000 / Year</td>
+                    <td>
+                        <a href="https://www.du.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>IIT Roorkee</td>
+                    <td>MTech</td>
+                    <td>GATE</td>
+                    <td>January 2026</td>
+                    <td>February 2026</td>
+                    <td><span class="badge bg-danger">Closed</span></td>
+                    <td>₹80,000 / Year</td>
+                    <td>
+                        <a href="https://www.iitr.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Anna University</td>
+                    <td>MTech</td>
+                    <td>TANCET / GATE</td>
+                    <td>February 2026</td>
+                    <td>March 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>₹50,000 / Year</td>
+                    <td>
+                        <a href="https://www.annauniv.edu" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Jamia Millia Islamia</td>
+                    <td>PG Diploma</td>
+                    <td>University Test</td>
+                    <td>March 2026</td>
+                    <td>May 2026</td>
+                    <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                    <td>₹25,000 (Full Course)</td>
+                    <td>
+                        <a href="https://www.jmi.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <!-- GLOBAL UNIVERSITIES -->
+
+                <tr>
+                    <td>University of Arizona (USA)</td>
+                    <td>MS GIS</td>
+                    <td>GRE / University Entry</td>
+                    <td>December 2025</td>
+                    <td>March 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>~US$30,000 / Year</td>
+                    <td>
+                        <a href="https://geography.arizona.edu/graduate-programs" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>University College London (UK)</td>
+                    <td>MSc Geospatial Sciences</td>
+                    <td>University Entry</td>
+                    <td>November 2025</td>
+                    <td>February 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>£18,000–£35,000 / Year</td>
+                    <td>
+                        <a href="https://www.ucl.ac.uk/geography" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>National University of Singapore</td>
+                    <td>MSc Applied GIS</td>
+                    <td>University Entry</td>
+                    <td>January 2026</td>
+                    <td>March 2026</td>
+                    <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                    <td>SG$20,000 / Year</td>
+                    <td>
+                        <a href="https://fass.nus.edu.sg/geog/msc-in-applied-gis/" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>University of Melbourne</td>
+                    <td>Master of Spatial Engineering</td>
+                    <td>University Entry</td>
+                    <td>December 2025</td>
+                    <td>February 2026</td>
+                    <td><span class="badge bg-danger">Closed</span></td>
+                    <td>~AU$38,000 / Year</td>
+                    <td>
+                        <a href="https://study.unimelb.edu.au/find/courses/graduate/master-of-spatial-engineering/" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>UNIGIS (Online Global)</td>
+                    <td>MSc GIS</td>
+                    <td>Online Entry</td>
+                    <td>Rolling Admission</td>
+                    <td>Rolling Admission</td>
+                    <td><span class="badge bg-info text-dark">Ongoing</span></td>
+                    <td>Varies by Location</td>
+                    <td>
+                        <a href="https://unigis.net" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Banaras Hindu University (BHU)</td>
+                    <td>MSc Geoinformatics</td>
+                    <td>CUET-PG</td>
+                    <td>March 2026</td>
+                    <td>April 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>₹10,000 / Year</td>
+                    <td>
+                        <a href="https://www.bhu.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Aligarh Muslim University (AMU)</td>
+                    <td>MSc Remote Sensing & GIS</td>
+                    <td>CUET-PG</td>
+                    <td>April 2026</td>
+                    <td>May 2026</td>
+                    <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                    <td>₹9,000 / Year</td>
+                    <td>
+                        <a href="https://www.amu.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>University of Allahabad</td>
+                    <td>PG Diploma GIS</td>
+                    <td>University Test</td>
+                    <td>May 2026</td>
+                    <td>June 2026</td>
+                    <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                    <td>₹20,000 (Full Course)</td>
+                    <td>
+                        <a href="https://www.allduniv.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Panjab University</td>
+                    <td>MSc Geoinformatics</td>
+                    <td>University Entrance</td>
+                    <td>March 2026</td>
+                    <td>April 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>₹25,000 / Year</td>
+                    <td>
+                        <a href="https://puchd.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Savitribai Phule Pune University</td>
+                    <td>MSc Geoinformatics</td>
+                    <td>University Entrance</td>
+                    <td>April 2026</td>
+                    <td>June 2026</td>
+                    <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                    <td>₹30,000 / Year</td>
+                    <td>
+                        <a href="https://www.unipune.ac.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Andhra University</td>
+                    <td>MSc Geoinformatics</td>
+                    <td>AP PGCET</td>
+                    <td>May 2026</td>
+                    <td>June 2026</td>
+                    <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                    <td>₹18,000 / Year</td>
+                    <td>
+                        <a href="https://www.andhrauniversity.edu.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>University of Kashmir</td>
+                    <td>MSc Geoinformatics</td>
+                    <td>University Entrance</td>
+                    <td>April 2026</td>
+                    <td>May 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>₹15,000 / Year</td>
+                    <td>
+                        <a href="https://www.kashmiruniversity.net" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>North Eastern Space Applications Centre (NESAC)</td>
+                    <td>Certificate in GIS & RS</td>
+                    <td>Direct Application</td>
+                    <td>Rolling Admission</td>
+                    <td>Rolling Admission</td>
+                    <td><span class="badge bg-info text-dark">Ongoing</span></td>
+                    <td>Nominal Fee</td>
+                    <td>
+                        <a href="https://nesac.gov.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Indian Institute of Remote Sensing (IIRS)</td>
+                    <td>PG Diploma / Certificate</td>
+                    <td>ISRO Portal</td>
+                    <td>January 2026</td>
+                    <td>March 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>Free / Nominal</td>
+                    <td>
+                        <a href="https://www.iirs.gov.in" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Netra Institute of Geoinformatics </td>
+                    <td>PG Diploma / Certificate</td>
+                    <td>Graduate</td>
+                    <td>January 2026</td>
+                    <td>March 2026</td>
+                    <td><span class="badge bg-success">Open</span></td>
+                    <td>Free / Nominal</td>
+                    <td>
+                        <a href="https://nigmt.org/" target="_blank" class="btn btn-success btn-sm">Apply Now</a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+    <footer class="text-center py-3 fw-bold" style="background-color:#0d6efd; color:white;">
+    <p class="mb-0">
+        © 2026 Geo-Informatics Pathshala |
+        <a href="privacy-policy.html" class="text-white text-decoration-none">Privacy Policy</a> |
+        <a href="terms.html" class="text-white text-decoration-none">Terms</a> |
+        <a href="disclaimer.html" class="text-white text-decoration-none">Disclaimer</a> |
+        <a href="contact.html" class="text-white text-decoration-none">Contact</a>
+    </p>
+</footer>
+
+    <script>
+
+        const searchInput = document.getElementById("searchInput");
+        const courseFilter = document.getElementById("courseFilter");
+        const table = document.getElementById("admissionTable");
+        const rows = table.getElementsByTagName("tr");
+
+        function filterTable() {
+            const searchText = searchInput.value.toLowerCase();
+            const selectedCourse = courseFilter.value;
+
+            for (let i = 1; i < rows.length; i++) {
+                let university = rows[i].cells[0].textContent.toLowerCase();
+                let course = rows[i].cells[1].textContent;
+
+                let matchSearch = university.includes(searchText);
+                let matchCourse = (selectedCourse === "All" || course === selectedCourse);
+
+                if (matchSearch && matchCourse) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        searchInput.addEventListener("keyup", filterTable);
+        courseFilter.addEventListener("change", filterTable);
+
+    </script>
+
+</body>
+</html>
