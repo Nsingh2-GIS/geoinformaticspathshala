@@ -132,7 +132,43 @@
             <div id="map" class="shadow"></div>
         </div>
     </section>
+<section class="py-5 text-center" style="background: linear-gradient(135deg, #0d6efd, #6610f2); color: white;">
+    <div class="container">
+        <h2 class="fw-bold mb-3">🎥 & 📱 Join Our Community!</h2>
+        <p class="mb-4 fs-5">
+            Subscribe to our <b>YouTube channel</b> and join our <b>Telegram group</b> for latest tutorials, study materials, and updates.
+        </p>
 
+        <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <!-- YouTube -->
+            <a href="https://youtube.com/@geo-informaticspathshala?si=YEqZ0RMAqofjz9Vk" target="_blank"
+               class="btn btn-lg rounded-pill text-white fw-bold"
+               style="background: linear-gradient(45deg, #FF0000, #FF5555); box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                📺 YouTube Channel
+            </a>
+
+            <!-- Telegram -->
+            <a href="https://t.me/GisandRsEdu" target="_blank"
+               class="btn btn-lg rounded-pill text-white fw-bold"
+               style="background: linear-gradient(45deg, #0088cc, #00c6ff); box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                💬 Telegram Group
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add hover animation
+        const buttons = document.querySelectorAll('a.btn-lg');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'scale(1.1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</section>
     <!-- ================= FOR STUDENTS ================= -->
     <section class="py-5">
         <div class="container">
@@ -281,6 +317,7 @@
 
 </body>
 </html>
+
 
 
 
