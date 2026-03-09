@@ -100,7 +100,121 @@ technological revolution</h5>
 
     </div>
 </div>
+<!-- Research Paper Finder -->
 
+<section class="header">
+
+<h1>📚 Research Paper Finder</h1>
+
+<p>Search Research Papers, Journals & Academic Resources</p>
+
+<div class="search-box">
+
+<input type="text" id="searchQuery" class="form-control form-control-lg" placeholder="Search Research Papers...">
+
+<button class="btn btn-light mt-3" onclick="searchScholar()">Search</button>
+
+</div>
+
+</section>
+
+
+<!-- Research Portals -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="row g-4">
+
+<!-- Google Scholar -->
+
+<div class="col-md-4">
+
+<div class="card shadow h-100">
+
+<div class="card-body text-center">
+
+<h4>🔎 Google Scholar</h4>
+
+<p>Search millions of research papers and academic articles.</p>
+
+<a href="https://scholar.google.com" target="_blank" class="btn btn-primary">
+Open Scholar
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ONOS -->
+
+<div class="col-md-4">
+
+<div class="card shadow h-100">
+
+<div class="card-body text-center">
+
+<h4>🇮🇳 ONOS Portal</h4>
+
+<p>Access 13000+ international journals from Government portal.</p>
+
+<a href="https://www.onos.gov.in/" target="_blank" class="btn btn-success">
+Open ONOS
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DOAJ -->
+
+<div class="col-md-4">
+
+<div class="card shadow h-100">
+
+<div class="card-body text-center">
+
+<h4>🌍 DOAJ Journals</h4>
+
+<p>Find open access journals and research papers worldwide.</p>
+
+<a href="https://doaj.org/" target="_blank" class="btn btn-dark">
+Open DOAJ
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+function searchScholar(){
+
+var query = document.getElementById("searchQuery").value;
+
+var url = "https://scholar.google.com/scholar?q=" + query;
+
+window.open(url,"_blank");
+
+}
+
+</script>
 <!-- Footer -->
 <footer class="text-center py-3 fw-bold mt-4" style="background-color:#0d6efd; color:white;">
     <p class="mb-0">
@@ -118,4 +232,5 @@ technological revolution</h5>
 </body>
 
 </html>
+
 
